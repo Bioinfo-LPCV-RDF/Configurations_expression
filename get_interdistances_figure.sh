@@ -57,7 +57,10 @@ python get_interdistances.py -mat $matrix_wh_ARF2  -maxInter 30 -pos ../$results
 
 python get_interdistances.py -mat $matrix_wh_MP  -maxInter 30 -pos ../$results/regulated_promoters.fas -th -8 -9 -10 -11 -neg ../$results/non_regulated_promoters.fas -points True -o ../$results -n ARF_regulated.svg -or 2 -ol 2 -save &
 
-python get_interdistances.py -mat $matrix_wh_MP  -maxInter 30 -pos ../$results/up_regulated_promoters.fas -th -8 -9 -10 -11 -neg ../$results/non_up_regulated_promoters.fas -points True -o ../$results -n ARF_up_regulated.svg -or 2 -ol 2 -save &
+python get_interdistances.py -mat $matrix_wh_MP  -maxInter 30 -pos ../$results/down_regulated_promoters.fas -th -8 -9 -10 -11 -neg ../$results/non_regulated_promoters.fas -points True -o ../$results -n ARF_regulated.svg -or 2 -ol 2 -save &
+
+
+python get_interdistances.py -mat $matrix_wh_MP  -maxInter 30 -pos ../$results/up_regulated_promoters.fas -th -8 -9 -10 -11 -neg ../$results/non_regulated_promoters.fas -points True -o ../$results -n ARF_up_regulated.svg -or 2 -ol 2 -save &
 
 
 ########## bound vs not bound  ############

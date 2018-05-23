@@ -32,9 +32,11 @@ wait
 
 cat $data/$up_1 $data/$up_2 $data/$up_3 $data/$down_1 $data/$down_2 $data/$down_3 |  tr -dc '[a-zA-Z0-9]\n' | sort -u > $results/regulated_list
 cat $data/$up_1 $data/$up_2 $data/$up_3 |  tr -dc '[a-zA-Z0-9]\n' | sort -u > $results/up_regulated_list
+cat $data/$down_1 $data/$down_2 $data/$down_3 |  tr -dc '[a-zA-Z0-9]\n' | sort -u > $results/down_regulated_list
 
 grep . $results/regulated_list | xargs -I {} grep {} $gff | sed 's/Chr/chr/' | awk -v OFS="\t" ' $3=="gene" {print $0}'|  awk -v OFS="\t" '$7=="+" {print $1,$4-1500,$4,$7} $7=="-" {print $1,$5,$5+1500,$7}' | awk -v OFS="\t" '($2>0 && $1!="chrM" && $1!="chrC") {print $1,$2,$3}' | sort -u  > $results/regulated_promoters.bed
 grep . $results/up_regulated_list | xargs -I {} grep {} $gff | sed 's/Chr/chr/' | awk -v OFS="\t" ' $3=="gene" {print $0}'|  awk -v OFS="\t" '$7=="+" {print $1,$4-1500,$4,$7} $7=="-" {print $1,$5,$5+1500,$7}' | awk -v OFS="\t" '($2>0 && $1!="chrM" && $1!="chrC") {print $1,$2,$3}' | sort -u  > $results/up_regulated_promoters.bed
+grep . $results/down_regulated_list | xargs -I {} grep {} $gff | sed 's/Chr/chr/' | awk -v OFS="\t" ' $3=="gene" {print $0}'|  awk -v OFS="\t" '$7=="+" {print $1,$4-1500,$4,$7} $7=="-" {print $1,$5,$5+1500,$7}' | awk -v OFS="\t" '($2>0 && $1!="chrM" && $1!="chrC") {print $1,$2,$3}' | sort -u  > $results/down_regulated_promoters.bed
 
 
 python retrieve_non_regulated.py -o $results/non_regulated_list -g $gff -r $results/regulated_list

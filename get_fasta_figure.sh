@@ -16,6 +16,7 @@ bedtools getfasta -bed $results/non_regulated_promoters.bed -fi $genome -fo $res
 bedtools getfasta -bed $results/regulated_promoters.bed -fi $genome -fo $results/regulated_promoters.fas
 bedtools getfasta -bed $results/non_up_regulated_promoters.bed -fi $genome -fo $results/non_up_regulated_promoters.fas
 bedtools getfasta -bed $results/up_regulated_promoters.bed -fi $genome -fo $results/up_regulated_promoters.fas
+bedtools getfasta -bed $results/down_regulated_promoters.bed -fi $genome -fo $results/down_regulated_promoters.fas
 
 up_1=$results/up_1.bed
 up_2=$results/up_2.bed
