@@ -19,7 +19,7 @@ tail -n +3 $matrix_ARF2 | awk -v OFS="\t" '{print $1".0",$2".0",$3".0",$4".0"}' 
 ############## debug ##############
 # mkdir -p ../results/tests
 # cd ../lib/get_interdistances_program
-# python get_interdistances.py  -pos ../$results/MP_up_1_-8_-9_-10_-11_pos.pkl ../$results/MP_not_regulated_-8_-9_-10_-11_pos.pkl -th -8 -9 -neg ../$results/non_regulated_promoters_-8_-9_-10_-11_neg.pkl -points True -o ../../results/tests -n MP_regulated_vs_non_middle_th.png -load -leg "regulated (th=-8)" "not regulated (th=-8)" "regulated (th=-9)" "not regulated (th=-9)" 
+# python get_interdistances.py  -pos ../$results/MP_up_1_-8_-9_-10_-11_pos.pkl ../$results/MP_not_regulated_-8_-9_-10_-11_pos.pkl -th -8 -9 -neg ../$results/non_regulated_promoters_-8_-9_-10_-11_neg.pkl -points True -o ../../results/tests -n MP_regulated_vs_non_middle_th.svg -load -leg "regulated (th=-8)" "not regulated (th=-8)" "regulated (th=-9)" "not regulated (th=-9)" 
 # exit 0
 
 #################  MP  #################
